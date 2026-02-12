@@ -104,8 +104,7 @@ then
         formattedmessages=$formattedmessages'|'$i
       done
 
-      json='{"authenticationPassword":"'$EMAILAUTHPASS'", "messages" : "'$formattedmessages'", "packageManaged": "false", "instructions": "https://github.com/voiceittech/VoiceIt2-Perl/releases/download/'$wrapperplatformversion'/voiceIt2.pm"}'
-      curl -X POST -H "Content-Type: application/json" -d $json "https://api.voiceit.io/platform/38"
+      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=false" --data-urlencode "instructions=https://github.com/voiceittech/VoiceIt2-Perl/releases/download/$wrapperplatformversion/voiceIt2.pm" "https://api.voiceit.io/platform/38"
     fi
 
     exit 0
