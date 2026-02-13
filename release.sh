@@ -104,7 +104,7 @@ then
         formattedmessages=$formattedmessages'|'$i
       done
 
-      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=false" --data-urlencode "instructions=https://github.com/voiceittech/VoiceIt3-Perl/releases/download/$wrapperplatformversion/voiceIt3.pm" "https://api.voiceit.io/platform/38"
+      curl -X POST -H "X-Admin-Password: $EMAILAUTHPASS" --data-urlencode "messages=$formattedmessages" -d "packageManaged=false" --data-urlencode "instructions=https://github.com/voiceittech/VoiceIt3-Perl/releases/download/$wrapperplatformversion/voiceIt3.pm" "https://qpi.voiceit.io/platform/38"
     fi
 
     exit 0
