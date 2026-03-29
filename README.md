@@ -1,6 +1,5 @@
 <img src="./perl.png" width="100%" style="width:100%" />
 
-# VoiceIt3-Perl [![CI](https://github.com/voiceittech/VoiceIt3-Perl/actions/workflows/ci.yml/badge.svg)](https://github.com/voiceittech/VoiceIt3-Perl/actions/workflows/ci.yml) [![version](https://img.shields.io/github/v/release/voiceittech/VoiceIt3-Perl)](https://github.com/voiceittech/VoiceIt3-Perl/releases) ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 A Perl wrapper for VoiceIt's API 3.0 featuring Voice + Face Verification and Identification.
 
@@ -13,7 +12,7 @@ You can visit our [HTTP API 3.0 Documentation](https://api.voiceit.io/?perl#intr
 
 ## Support
 
-Contact us with any questions at support@voiceit.io
+Contact us with any questions at support@voiceit.tech
 
 ## License
 
