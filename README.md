@@ -1,5 +1,10 @@
 <img src="./perl.png" width="100%" style="width:100%" />
 
+[![Version](https://img.shields.io/badge/version-3.24-blue)](https://github.com/voiceittech/VoiceIt3-Perl)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-Perl/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Perl-lightgrey)](https://github.com/voiceittech/VoiceIt3-Perl)
+[![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
+
 
 A Perl wrapper for VoiceIt's API 3.0 featuring Voice + Face Verification and Identification.
 
