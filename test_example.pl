@@ -1,19 +1,28 @@
 #!/usr/bin/perl
-# Test script for VoiceIt3 Perl SDK
-
 use strict;
 use warnings;
+use JSON::Parse 'parse_json';
 require "./voiceIt3.pm";
 
-my $apiKey = $ENV{'VOICEIT_API_KEY'} || die "Set VOICEIT_API_KEY env var\n";
-my $apiToken = $ENV{'VOICEIT_API_TOKEN'} || die "Set VOICEIT_API_TOKEN env var\n";
+my $ak = $ENV{'VOICEIT_API_KEY'} || die "Set VOICEIT_API_KEY\n";
+my $at = $ENV{'VOICEIT_API_TOKEN'} || die "Set VOICEIT_API_TOKEN\n";
+my $vi = voiceIt3->new($ak, $at);
+my $phrase = "never forget tomorrow is a new day";
+my $td = "test-data";
 
-my $vi = voiceIt3->new($apiKey, $apiToken);
+my $r = parse_json($vi->createUser());
+my $userId = $r->{userId};
+print "CreateUser: " . $r->{responseCode} . "\n";
 
-print "CreateUser: " . $vi->createUser() . "\n";
-print "GetAllUsers: " . $vi->getAllUsers() . "\n";
-print "CreateGroup: " . $vi->createGroup("Test Group") . "\n";
-print "GetAllGroups: " . $vi->getAllGroups() . "\n";
-print "GetPhrases: " . $vi->getPhrases("en-US") . "\n";
+for my $i (1..3) {
+    $r = parse_json($vi->createVideoEnrollment($userId, "en-US", $phrase, "$td/videoEnrollmentA$i.mov"));
+    print "VideoEnrollment$i: " . $r->{responseCode} . "\n";
+}
 
-print "\nAll API calls completed successfully!\n";
+$r = parse_json($vi->videoVerification($userId, "en-US", $phrase, "$td/videoVerificationA1.mov"));
+print "VideoVerification: " . $r->{responseCode} . "\n";
+print "  Voice: " . ($r->{voiceConfidence}//0) . ", Face: " . ($r->{faceConfidence}//0) . "\n";
+
+$vi->deleteAllEnrollments($userId);
+$vi->deleteUser($userId);
+print "\nAll tests passed!\n";
