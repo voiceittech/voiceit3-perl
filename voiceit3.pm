@@ -212,7 +212,7 @@ sub createGroup(){
     shift;
     my ($usrId)= @_;
     my $ua = LWP::UserAgent->new();
-    my $request = GET $baseUrl.'/enrollments/face/'.$usrId.$self->{notificationUrl};
+    my $request = GET $baseUrl.'/enrollments/face/'.uri_escape($usrId).$self->{notificationUrl};
     $request->header('platformId' => $platformId);
     $request->header('platformVersion' => $platformVersion);
     $request->authorization_basic($apiKey, $apiToken);
@@ -224,7 +224,7 @@ sub createGroup(){
     shift;
     my ($usrId)= @_;
     my $ua = LWP::UserAgent->new();
-    my $request = GET $baseUrl.'/enrollments/voice/'.$usrId.$self->{notificationUrl};
+    my $request = GET $baseUrl.'/enrollments/voice/'.uri_escape($usrId).$self->{notificationUrl};
     $request->header('platformId' => $platformId);
     $request->header('platformVersion' => $platformVersion);
     $request->authorization_basic($apiKey, $apiToken);
@@ -236,7 +236,7 @@ sub createGroup(){
     shift;
     my ($usrId)= @_;
     my $ua = LWP::UserAgent->new();
-    my $request = GET $baseUrl.'/enrollments/video/'.$usrId.$self->{notificationUrl};
+    my $request = GET $baseUrl.'/enrollments/video/'.uri_escape($usrId).$self->{notificationUrl};
     $request->header('platformId' => $platformId);
     $request->header('platformVersion' => $platformVersion);
     $request->authorization_basic($apiKey, $apiToken);
