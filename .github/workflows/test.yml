@@ -11,7 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: sudo cpan -T HTTP::Request::Common LWP::Protocol::https LWP::UserAgent JSON::Parse
       - name: Run full API test
         env:
